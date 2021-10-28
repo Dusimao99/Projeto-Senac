@@ -13,8 +13,8 @@ import java.util.logging.Level;
  *
  * @author eduardo.santos8
  */
-public class FabricaConexao {
-    public static Connection criaConexao(){
+public class ConnectionFactory {
+    public static Connection getConnection(){
     final String url = "jdbc:mysql://localhost:3306/projetointegrador?verifyServerCertificate=false&useSSL=true";
     final String user = "teste";
     final String password = "eduardo12";

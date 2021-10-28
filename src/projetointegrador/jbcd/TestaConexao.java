@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 public class TestaConexao {
     public static void main(String[] args) {
         try {
-            FabricaConexao.criaConexao();
+            ConnectionFactory.getConnection();
             JOptionPane.showMessageDialog(null,"Conexao bem sucedida");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,e);
