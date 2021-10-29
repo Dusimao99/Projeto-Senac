@@ -20,7 +20,7 @@ public class Enderecos {
     private String complemento = "";
     private String bairro = "";
     private String cidade = "";
-    private String uf ="";
+    private String uf =" ";
    
     
 
