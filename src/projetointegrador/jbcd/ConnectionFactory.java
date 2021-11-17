@@ -15,9 +15,9 @@ import java.util.logging.Level;
  */
 public class ConnectionFactory {
     public static Connection getConnection(){
-    final String url = "jdbc:mysql://localhost:3306/projetointegrador?verifyServerCertificate=false&useSSL=true";
+    final String url = "jdbc:mysql://localhost:3306/Banco?verifyServerCertificate=false&useSSL=true";
     final String user = "teste";
-    final String password = "eduardo12";
+    final String password = "987654";
         try {
             return DriverManager.getConnection(url,user,password);
         } catch (SQLException e) {

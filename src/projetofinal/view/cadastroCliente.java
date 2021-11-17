@@ -150,6 +150,11 @@ public class cadastroCliente extends javax.swing.JFrame {
         });
 
         jButton7.setText("Lista endereços ");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         jFormattedTextField1NumeroCasaCliente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         jFormattedTextField1NumeroCasaCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -191,9 +196,7 @@ public class cadastroCliente extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addGap(127, 127, 127)
-                        .addComponent(jButton6SalvaEndereco)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButton6SalvaEndereco))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(378, 378, 378)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,7 +221,11 @@ public class cadastroCliente extends javax.swing.JFrame {
                                 .addComponent(jFormattedTextField1NumeroCasaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jFormattedTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jFormattedTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(266, 266, 266)))
                 .addContainerGap(49, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -237,10 +244,11 @@ public class cadastroCliente extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(jFormattedTextField6TelefoneCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jButton7)
-                    .addComponent(jButton6SalvaEndereco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton6SalvaEndereco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton7))
+                    .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
@@ -303,8 +311,9 @@ public class cadastroCliente extends javax.swing.JFrame {
                 .addComponent(jButton5)
                 .addContainerGap(313, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jScrollPane2)
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -314,8 +323,9 @@ public class cadastroCliente extends javax.swing.JFrame {
                     .addComponent(jTextFieldNomeCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15)
                     .addComponent(jButton5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPaneConsulta.addTab("CONSULTA", jPanel3);
@@ -445,13 +455,13 @@ public class cadastroCliente extends javax.swing.JFrame {
         try {
             Enderecos endereco = new Enderecos();
         
-        endereco.setCEP(jFormattedTextField2CepCliente.getText());
+        endereco.setCep(jFormattedTextField2CepCliente.getText());
         endereco.setRua(jTextFieldNomeRuaCliente.getText());
         endereco.setNumero(Integer.parseInt(jFormattedTextField1NumeroCasaCliente.getText()));
         endereco.setComplemento(jTextFieldComplementoCliente.getText());
         endereco.setBairro(jTextFieldNomeBairroCliente.getText());
         endereco.setCidade(jTextFieldNomeCidadeCliente.getText());
-        endereco.setUf(jComboBox1UfBrasil.getSelectedItem().toString());
+        endereco.setUF(jComboBox1UfBrasil.getSelectedItem().toString());
         
         EnderecosDAO enderecaoDAO = new EnderecosDAO();
         enderecaoDAO.cadastrarEnderecos(endereco);
@@ -468,6 +478,11 @@ public class cadastroCliente extends javax.swing.JFrame {
     private void jComboBox1UfBrasilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1UfBrasilActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1UfBrasilActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        ListarEnderecos telaListaEnderecos = new ListarEnderecos();
+        telaListaEnderecos.setVisible(true);
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments

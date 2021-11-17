@@ -11,21 +11,32 @@ package model;
  */
 
 public class Enderecos {
-
-    
+    //ATRIBUTOS
     private int id;
-    private String CEP = "";
-    private String rua = "";
-    private int numero = 0;
-    private String complemento = "";
-    private String bairro = "";
-    private String cidade = "";
-    private String uf =" ";
-   
+    private String cep;
+    private String rua;
+    private int numero;
+    private String complemento;
+    private String bairro;
+    private String cidade;
+    private String uf;
+    private Cliente clientes;
     
+    //GETTERS E SETTERS
+    public int getId() {
+        return id;
+    }
 
-    public void setCEP(String CEP) {
-        this.CEP = CEP;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
     }
 
     public String getRua() {
@@ -68,21 +79,22 @@ public class Enderecos {
         this.cidade = cidade;
     }
 
-    public String getUf() {
+    public String getUF() {
         return uf;
     }
 
-    public void setUf(String uf) {
+    public void setUF(String uf) {
         this.uf = uf;
     }
-   public String getCEP() {
-        return CEP;
-}
-public int getId() {
-        return id;
+
+    public Cliente getClientes() {
+        return clientes;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setClientes(Cliente clientes) {
+        this.clientes = clientes;
     }
+
+
+   
 }
