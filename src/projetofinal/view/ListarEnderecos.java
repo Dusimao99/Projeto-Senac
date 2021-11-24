@@ -6,8 +6,8 @@
 package projetofinal.view;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
-import DAO.EnderecosDAO;
-import model.Enderecos;
+import projetofinal.dao.EnderecosDAO;
+import projetofinal.model.Enderecos;
 
 /**
  *

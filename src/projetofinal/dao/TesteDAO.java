@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DAO;
+package projetofinal.dao;
 
-import model.Cliente;
-import model.Enderecos;
+import projetofinal.model.Cliente;
+import projetofinal.model.Enderecos;
 
 /**
  *

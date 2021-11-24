@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projetointegrador.jbcd;
+package projetofinal.jbcd;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -15,7 +15,7 @@ import java.util.logging.Level;
  */
 public class ConnectionFactory {
     public static Connection getConnection(){
-    final String url = "jdbc:mysql://localhost:3306/Banco?verifyServerCertificate=false&useSSL=true";
+    final String url = "jdbc:mysql://localhost:3306/projetointegrador?verifyServerCertificate=false&useSSL=true";
     final String user = "teste";
     final String password = "987654";
         try {
