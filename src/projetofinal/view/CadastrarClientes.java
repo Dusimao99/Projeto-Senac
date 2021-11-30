@@ -5,6 +5,10 @@
  */
 package projetofinal.view;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -12,6 +16,9 @@ import projetofinal.dao.ClienteDAO;
 import projetofinal.dao.EnderecosDAO;
 import projetofinal.model.Cliente;
 import projetofinal.model.Enderecos;
+import projetofinal.jbcd.ConnectionFactory;
+import java.sql.Connection;
+import javax.swing.*;
 
 
 public class CadastrarClientes extends javax.swing.JFrame {
@@ -473,8 +480,8 @@ public class CadastrarClientes extends javax.swing.JFrame {
                         .addComponent(jLabelNomeCon)
                         .addComponent(jTextFieldPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPaneCon, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(204, Short.MAX_VALUE))
+                .addComponent(jScrollPaneCon, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jTabbedPaneClientes.addTab("Consulta de clientes", jPanelConsultaClientes);
@@ -688,7 +695,48 @@ public class CadastrarClientes extends javax.swing.JFrame {
        jFormattedTextFieldCPF.setText(jTableClientes.getValueAt(jTableClientes.getSelectedRow(), 2).toString());
        jTextFieldEmail.setText(jTableClientes.getValueAt(jTableClientes.getSelectedRow(), 3).toString());
        jFormattedTextFieldTel.setText(jTableClientes.getValueAt(jTableClientes.getSelectedRow(), 4).toString());
+       
        jTabbedPaneClientes.setSelectedIndex(0);
+       
+       
+      
+      try {
+            Connection conexao = ConnectionFactory.getConnection();
+            //1º passo: criar uma lista para armazenar os clientes
+            List<String> lista = new ArrayList<>();
+            
+            //2º passo: criar o comando sql que seleciona todos os itens da
+            //tabela de endereços
+            String sql = "select id from tb_enderecos where id_cliente=?";
+            
+            //3º passo: preparar o comando colocando na conexao que será
+            //utilizada para executá-lo no BD
+            PreparedStatement comando = conexao.prepareStatement(sql);
+            comando.setString(1, jTextFieldId.getText());
+            
+            //4º passo: quando usamos JDBC, o resultado de um comando select 
+            //precisa ser armazenado em um objeto do tipo ResultSet
+            ResultSet rs = comando.executeQuery();
+            
+            //5º passo: criar um laço de repetição para adicionar os itens do
+            //ResultSet na lista criada no primeiro passo.
+            while(rs.next()){ //Enquanto(while) conseguir percorrer o próximo (next) item do ResultSet
+                lista.add(rs.getString("id"));       
+            }
+            //6º passo: após a lista ser criada, agora eu retorno como resultado
+            // do meu método a lista pronta.
+            
+             DefaultComboBoxModel defaultComboBox = new DefaultComboBoxModel(lista.toArray());
+             jComboBoxEnderecos.setModel(defaultComboBox);
+             
+             
+            
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+            
+            
+
+        }
     }//GEN-LAST:event_jTableClientesMouseClicked
 
     /**
