@@ -5,7 +5,7 @@
  */
 package projetofinal.dao;
 
-import projetofinal.model.Cliente;
+import projetofinal.model.Produto;
 import projetofinal.model.Enderecos;
 
 /**
@@ -13,16 +13,18 @@ import projetofinal.model.Enderecos;
  * @author eduardo.santos8
  */
 public class TesteDAO {
+    //TESTANDO O CADASTRO DO PRODUTO
     public static void main(String[] args) {
       
-        Cliente clientesTeste = new Cliente();
-        clientesTeste.setNome("Joao ");
-        clientesTeste.setEmail("joao@gmail.com");
-        clientesTeste.setCpf("109.134.678-45");
-        clientesTeste.setTelefone("49987658907");
+        Produto produtoTeste = new Produto();
+        produtoTeste.setNome("Mouse Grande");
+        produtoTeste.setDescicao("Mouse razer gamer");
+        produtoTeste.setPeso(15);
+        produtoTeste.setValor(500);
+        produtoTeste.setQtd_estoque(25);
         
-         ClienteDAO dao = new ClienteDAO();
-        dao.cadastrarCliente(clientesTeste);
+         ProdutoDAO dao = new ProdutoDAO();
+        dao.cadastrarProduto(produtoTeste);
         
         
         

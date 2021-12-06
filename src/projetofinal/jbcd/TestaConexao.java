@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author eduardo.santos8
+ * @author eduardo.santos8|
  */
 public class TestaConexao {
     public static void main(String[] args) {

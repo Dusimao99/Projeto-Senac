@@ -101,11 +101,22 @@ public class CadastrarClientes extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanelDadosPessoais.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanelDadosPessoaisMouseClicked(evt);
+            }
+        });
+
         jLabelId.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabelId.setText("Identificador:");
 
         jTextFieldId.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextFieldId.setEnabled(false);
+        jTextFieldId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldIdActionPerformed(evt);
+            }
+        });
 
         jLabelNome.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabelNome.setText("Nome:");
@@ -738,6 +749,14 @@ public class CadastrarClientes extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_jTableClientesMouseClicked
+
+    private void jTextFieldIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldIdActionPerformed
+
+    private void jPanelDadosPessoaisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelDadosPessoaisMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanelDadosPessoaisMouseClicked
 
     /**
      * @param args the command line arguments
